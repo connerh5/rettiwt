@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+        <div class="container text-center"></div>
+         <div class="row"></div>
+             <div class="col-8"></div>
+
+        <h1>Retts</h1>
+</br>
+        {% for rett in retts %}</br>
+            <div class="alert alert-dark" role="alert">
+           {{ rett.body }}
+           <small class="text-muted">
+               {{ rett.created_at }} By
+               @{{ rett.user.username }}
+           </small>
+            </div>
+        </br><br>
+    {% endfor %}
+
+<div class="col-4"></div>
+{% if form %}
+<form method =POST>
+    {% csrf_token %}
+    {{ form.as_p }}
+
+  <button type=submit" class="btn btn-secondary">Post Rett.</button>
+</form>
+{% endif %}
+
+
+
+{% endblock %}
+
+
+
+
